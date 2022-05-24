@@ -87,7 +87,6 @@ export const loadCompany = async (id) => {
     data: { company },
   } = await client.query({ query, variables: { id } });
 
-  // const { company } = await graphqlQuery(query, { id });
   return company;
 };
 
@@ -129,6 +128,6 @@ export const loadJobs = async () => {
 
   const {
     data: { jobs },
-  } = await client.query({ query });
+  } = await client.query({ query , fetchPolicy:'no-cache'});
   return jobs;
 };

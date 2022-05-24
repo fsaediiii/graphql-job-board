@@ -10,7 +10,6 @@ export class NavBar extends Component {
           <div className="navbar-start">
             <Link className="navbar-item" to="/">Home</Link>
             <Link className="navbar-item" to="/jobs/new">Post Job</Link>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="navbar-item" onClick={onLogout}>Logout</a>
           </div>
         </nav>
