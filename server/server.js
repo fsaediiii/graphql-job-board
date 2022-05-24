@@ -20,21 +20,25 @@ app.use(
   })
 );
 
-const typeDefs = gql(
-  fs.readFileSync("./schema.graphql", { encoding: "utf8" })
-);
+const typeDefs = gql(fs.readFileSync("./schema.graphql", { encoding: "utf8" }));
 
 const resolvers = require("./resolvers.js");
+
+const context = ({ req }) => {
+  if (req.headers.authorization)
+    return { user: db.users && db.users.get(req.user.sub) };
+  else return "";
+};
 
 async function startServer() {
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
     csrfPrevention: true,
-    });
+    context,
+  });
   await apolloServer.start();
-  apolloServer.applyMiddleware({ app: app })
- 
+  apolloServer.applyMiddleware({ app: app });
 }
 startServer();
 

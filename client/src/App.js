@@ -5,7 +5,7 @@ import { CompanyDetail } from './components/CompanyDetail/CompanyDetail';
 import { LoginForm } from './LoginForm';
 import { JobBoard } from './components/JobBoard/JobBoard';
 import { JobDetail } from './components/JobDetail/JobDetail';
-import { JobForm } from './JobForm';
+import { JobForm } from './components/JobForm/JobForm';
 import { NavBar } from './NavBar';
 
 export class App extends Component {

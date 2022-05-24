@@ -3,10 +3,6 @@ import { JobList } from "../../JobList";
 const { loadCompany } = require("../../requests");
 
 export const CompanyDetail = (props) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {company: companies.find((company) => company.id === companyId)};
-  // }
   const { companyId } = props.match.params;
 
   const [state, setState] = useState();
@@ -19,7 +15,6 @@ export const CompanyDetail = (props) => {
       } catch (e) {}
     })();
   }, []);
-  console.log("sssssss", state);
 
   return (
     <div>
